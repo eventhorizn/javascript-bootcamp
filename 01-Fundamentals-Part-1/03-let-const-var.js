@@ -17,5 +17,6 @@ var job = 'programmer';
 job = 'teacher'
 
 // it's not mandatory to declare variables at all
+// but this is declared globally
 lastName = 'Hake';
 console.log(lastName);

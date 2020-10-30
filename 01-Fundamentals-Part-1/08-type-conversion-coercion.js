@@ -11,11 +11,15 @@ console.log(String(23), 23);
 
 // type coercion
 // js automatically converts behind the scenes
-console.log('I am ' + 23 + ' years old');
-console.log('23' - '10' - 3);
+// when an operator is dealing w/ two different types
+console.log('I am ' + 23 + ' years old'); // plus triggers string addition
+console.log('23' - '10' - 3); // minus triggers number conversion
 console.log('23' / '2');
 console.log('23' > '18');
 
 let n = '1' + 1; // '11'
 n = n - 1;
 console.log(n);
+
+// uses number addition until it hits string
+console.log(2 + 3 + 4 + '5');

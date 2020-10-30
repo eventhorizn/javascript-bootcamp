@@ -1,9 +1,11 @@
-3 + 4
+// expression produces a value
+3 + 4 // expression
 1991
 true && false && !false
 
+// statement performs actions
 if (23 > 10) {
-    const str = '23 is bigger';
+    const str = '23 is bigger'; // this is an expression
 }
 
 const me = 'Jonas';

@@ -121,3 +121,13 @@ JavaScript has dynamic typing. Don't need to define a type until assigned
   - Future versions of the language
   - So browsers can stay current w/ language releases
   - Stages to a release, so browser devs can be sure when a release is almost done
+
+## JavaScript DOM
+
+Document Object Model
+
+- Basically, the connection point b/t HTML and JS code
+- Structured representation of HTML documents
+  - Allows JS to access HTML Elements and styles to manipulate them
+- DOM is not part of JS
+  - Part of WebAPIs that can interact w/ JS

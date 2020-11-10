@@ -131,3 +131,155 @@ Document Object Model
   - Allows JS to access HTML Elements and styles to manipulate them
 - DOM is not part of JS
   - Part of WebAPIs that can interact w/ JS
+
+# JavaScript Overview
+
+Everything JS is:
+
+1. High-Level
+   - Low-level like C, where you have to manage computer resources
+   - Don't have to manage these resources
+1. Garbage-Collection
+   - Cleans memory so we don't have to
+1. Interpreted or just-in-time compiled
+   - Abstract over machine code
+   - Convert to machine code = compiling
+     - Happens in js engine
+1. Multi-paradigm
+   - An approach and mindset of structuring code
+   - Direct code style and technique
+   - Procedural, OOP, Functional
+     - JS does all of it
+1. Prototype-based Object-oriented
+   - Almost everything is an object except for primitives
+   - Objects are built from prototypes
+   - prototypes have all methods
+1. First-class Functions
+   - Functions are treaded as variables
+   - pass them into other functions and return from other functions
+1. Dynamic
+   - dynamically typed
+   - Can re-assign variables as different types
+1. Single-threaded & Non-blocking event loop
+   - JS engine handles multiple tasks happening at the same time
+   - JS only runs in a single thread
+   - So for long running tasks, JS uses an event loop
+     - Takes long running task, executes in the background
+     - Puts them back in the main thread once they are finished
+
+## JavaScript Engine and Runtime
+
+### Engine
+
+- Program that executes JS code
+- Every browser has it's own JS engine
+  - Chrome's V8 engine
+  - Edge's chakra
+- All engines have
+  - Call Stack (where code is executed)
+  - Heap (where objects are stored)
+- Parsers, compiles, then executes
+- Optimizes multiple times when compiling and running code
+  - Runs on threads we don't have access to
+
+### Compilation vs Interpretation
+
+1. Compilation
+   - Entire code is converted into machine code
+   - Written to bin file
+   - Executed by computer
+1. Interpretation
+   - Interpreter runs through the source code and executes it line by line
+   - Still needs to be converted, but happens at runtime, not before hand
+   - Much slower than compiled languages
+1. JIT compilation (just in time)
+   - Entire code is converted into machine code at once, and then exectured immediately
+   - Lot faster than executing code line by line
+
+## Execution Context and Call Stack
+
+### Execution Context
+
+What happens after compilation?
+
+1. Creation of global execution context (for top level code)
+   - Not inside a function
+1. Environment in which a piece of JS is executed
+   - Stores all necessary information for some code to be executed
+1. One global execution context
+   - Default context
+1. One execution context per function
+1. All together, make call stack
+
+What's inside?
+
+1. Variable Environment
+   - let, const, var declarations
+   - Functions
+   - arguments object
+1. Scope chain
+1. this keyword
+   - arrow functions don't have this keyword or arguments function
+
+### Call Stack
+
+1. Place where execution contexts get stacked on top of each other
+   - Keep strack of where we are in the execution
+
+## Scope
+
+1. How our program's variables are organized and accessed
+1. JS uses lexical scoping
+   - Scope is controlled by plaement of functions and blocks in code
+1. Global scope, function scope, and block scope
+   - Region where variables can be accessed
+   - ES6 is where block scope came (only let and const)
+   - var is **block** scoped. It is function scope
+
+## Hoisting (variable environment)
+
+Question is...should you use things before they are declared in a scripting based language?
+
+- Functions are the main reason
+  - Just put functions at the top?
+- var hoisting is simply a by-product
+
+1. Makes some types of variables accessible/usable in the code before they are actually declared
+   - Variables lifted to the top of thier scope
+1. Before execution, code is scanned for variable declarations
+   - For each variable, a new property is created in the variable environment object
+1. What are hoisted? (can be used before they are declared)
+   - Functions (YES)
+   - var (YES) (almost never use var in modern js)
+   - let and const (NO)
+   - function expressions and arrows (depends if created using var, let/const)
+     - They are variables and behave the same way
+
+## this Keyword
+
+1. Special variable that is created for every execution (ever function)
+   - Takes the value of the 'owner' of the function in which the 'this' keyword is used
+1. NOT static
+   - Depends on how the function is called
+1. this does NOT point to the function itself or its variable environment
+1. new, call, apply, bind
+
+### Method
+
+this = Object that is calling the method
+
+### Simple Function Call
+
+this = undefined
+
+- In strict mode
+
+### Arrow Functions
+
+this = this of surrounding function (lexical this)
+
+- They don't get thier own this keyword
+
+### Event Listener
+
+this = DOM element that the handler is attached to

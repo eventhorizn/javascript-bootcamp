@@ -1,4 +1,5 @@
 // Set: Collection of unique values
+// ES2020
 
 const ordersSet = new Set(['Pasta', 'Pizza', 'Pizza', 'Risotto', 'Pasta', 'Pizza']);
 

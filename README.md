@@ -283,3 +283,48 @@ this = this of surrounding function (lexical this)
 ### Event Listener
 
 this = DOM element that the handler is attached to
+
+## JavaScript Data Structures
+
+What are they and when to use them
+
+### Sources of Data
+
+1. From the program itself
+   - Data written directly in source code (status messages)
+1. From the UI
+   - Data input fromthe user or data written in DOM (tasks in todo app)
+1. From external sources
+   - Data fetched from web API (recipe object)
+
+No matter where they come from, we will have collections of data
+
+### Data Structures
+
+1. Simple List?
+   - Array or Set
+1. Key Value Pair?
+   - Object or Map
+   - Keys let us describe values
+
+When to use each?
+
+1. Arrays
+   - Use when you need ordered list of values (may contain dupes)
+   - User when you need to manipulate data
+1. Sets
+   - Use when you need to work w/ unique values
+   - Use when high performance is really important
+   - Use to remove dupes
+1. Objects
+   - More 'traditional' key/value store
+   - Easier to write and access values with '.' and '[]'
+   - Use when you need to include functions
+   - Use when working w/ json data (can convert to map)
+1. Maps
+   - Better performance
+   - Keys can have any data type
+   - Easy to iterate
+   - Easy to compute size
+   - Use when you need to map key to values
+   - Use when you need keys that are not strings

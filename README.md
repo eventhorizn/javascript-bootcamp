@@ -328,3 +328,20 @@ When to use each?
    - Easy to compute size
    - Use when you need to map key to values
    - Use when you need keys that are not strings
+
+## First-Class VS Higher-Order Functions
+
+### First-Class Functions
+
+1. JavaScript treats functions as **first-class citizens**
+   - Just means, that functions are values
+1. Functions are a nother 'type' of object
+   - So, functions have methods
+
+### Higher-Order Functions
+
+1. Function that:
+   - Receives another function as an argument
+   - Returns a new function
+   - Or both
+1. Only possible b/c of first-class functions

@@ -345,3 +345,12 @@ When to use each?
    - Returns a new function
    - Or both
 1. Only possible b/c of first-class functions
+
+## Map, Filter, Reduce
+
+1. Map
+   - Returns a new array containing the results of applying an operation on all original array elements
+1. Filter
+   - Returns a new array containing the array elements that passed a specified test condition
+1. Reduce
+   - Boils (reduces) all array elements down to one single value (adding all elements together)

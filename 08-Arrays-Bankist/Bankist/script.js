@@ -61,6 +61,9 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
+/////////////////////////////////////////////////
+// Functions
+
 /**
  * 
  * @param {Array} movements 
@@ -135,3 +138,15 @@ const createUsernames = function (accts) {
 }
 createUsernames(accounts);
 
+
+/////////////////////////////////////////////////
+// Event Handlers
+let currentAccount;
+
+
+btnLogin.addEventListener('click', function (e) {
+  // Prevent form from submitting
+  e.preventDefault();
+
+  currentAccount = accounts.find(x => x.username === inputLoginUsername.value);
+})

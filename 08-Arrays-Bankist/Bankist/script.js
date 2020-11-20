@@ -82,3 +82,29 @@ const displayMovements = function (movements) {
   });
 }
 displayMovements(account1.movements);
+
+/**
+ * 
+ * @param {Array} movements 
+ */
+const calcDisplayBalance = function (movements) {
+  const balance = movements.reduce((acc, mov) => acc + mov);
+  labelBalance.textContent = `${balance} EUR`
+}
+calcDisplayBalance(account1.movements);
+
+/**
+ * 
+ * @param {Array} accts 
+ */
+const createUsernames = function (accts) {
+  accts.forEach(function (acct) {
+    accts.username = acct.owner
+      .toLocaleLowerCase()
+      .split(' ')
+      .map(word => word[0])
+      .join('');
+  });
+}
+createUsernames(accounts);
+

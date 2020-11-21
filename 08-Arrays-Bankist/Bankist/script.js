@@ -47,10 +47,29 @@ const labelTimer = document.querySelector('.timer');
 const containerApp = document.querySelector('.app');
 const containerMovements = document.querySelector('.movements');
 
+/**
+ * @type {HTMLButtonElement}
+ */
 const btnLogin = document.querySelector('.login__btn');
+
+/**
+ * @type {HTMLButtonElement}
+ */
 const btnTransfer = document.querySelector('.form__btn--transfer');
+
+/**
+ * @type {HTMLButtonElement}
+ */
 const btnLoan = document.querySelector('.form__btn--loan');
+
+/**
+ * @type {HTMLButtonElement}
+ */
 const btnClose = document.querySelector('.form__btn--close');
+
+/**
+ * @type {HTMLButtonElement}
+ */
 const btnSort = document.querySelector('.btn--sort');
 
 const inputLoginUsername = document.querySelector('.login__input--user');
@@ -88,11 +107,11 @@ const displayMovements = function (movements) {
 
 /**
  * 
- * @param {Array} movements 
+ * @param {Object} acc 
  */
-const calcDisplayBalance = function (movements) {
-  const balance = movements.reduce((acc, mov) => acc + mov);
-  labelBalance.textContent = `${balance}€`
+const calcDisplayBalance = function (acc) {
+  acc.balance = acc.movements.reduce((acc, mov) => acc + mov);
+  labelBalance.textContent = `${acc.balance}€`
 }
 
 
@@ -135,6 +154,20 @@ const createUsernames = function (accts) {
 }
 createUsernames(accounts);
 
+/**
+ *
+ * @param {Object} acc
+ */
+const updateUI = function (acc) {
+  // Display movements
+  displayMovements(acc.movements);
+
+  // Display balance
+  calcDisplayBalance(acc);
+
+  // Display summary
+  calcDisplaySummary(acc);
+}
 
 /////////////////////////////////////////////////
 // Event Handlers
@@ -159,16 +192,29 @@ btnLogin.addEventListener('click', function (e) {
     inputLoginUsername.value = inputLoginPin.value = '';
     inputLoginPin.blur();
 
-    // Display movements
-    displayMovements(currentAccount.movements);
-
-    // Display balance
-    calcDisplayBalance(currentAccount.movements);
-
-    // Display summary
-    calcDisplaySummary(currentAccount);
+    updateUI(currentAccount);
   }
 });
 
 
-btnTransfer.addEventListener('click')
+btnTransfer.addEventListener('click', function (e) {
+  e.preventDefault();
+  const amount = Number(inputTransferAmount.value);
+  const receiverAcc = accounts.find(
+    acc => acc.username === inputTransferTo.value
+  );
+
+  inputTransferAmount.value = inputTransferTo.value = '';
+
+  if (
+    amount > 0 &&
+    receiverAcc &&
+    amount <= currentAccount.balance &&
+    receiverAcc?.username !== currentAccount.username) {
+
+    currentAccount.movements.push(-amount);
+    receiverAcc.movements.push(amount);
+
+    updateUI(currentAccount);
+  }
+});

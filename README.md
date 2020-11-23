@@ -346,7 +346,11 @@ When to use each?
    - Or both
 1. Only possible b/c of first-class functions
 
-## Map, Filter, Reduce
+## Array Methods
+
+![](images/array-method.png)
+
+### Map, Filter, Reduce
 
 1. Map
    - Returns a new array containing the results of applying an operation on all original array elements

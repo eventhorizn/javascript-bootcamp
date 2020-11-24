@@ -105,19 +105,29 @@ const calcDaysPassed = (date1, date2) => Math.round(Math.abs(date2 - date1) / (1
 /**
  * 
  * @param {Date} date 
+ * @param {String} locale 
  */
-const getDisplayDate = function (date) {
+const getDisplayDate = function (date, locale) {
   const daysPassed = calcDaysPassed(new Date(), date);
 
   if (daysPassed === 0) return 'Today';
   if (daysPassed === 1) return 'Yesterday';
   if (daysPassed <= 7) return `${daysPassed} days ago`;
 
-  const day = `${date.getDate()}`.padStart(2, 0);
-  const month = `${date.getMonth() + 1}`.padStart(2, 0);
-  const year = date.getFullYear();
+  // const day = `${date.getDate()}`.padStart(2, 0);
+  // const month = `${date.getMonth() + 1}`.padStart(2, 0);
+  // const year = date.getFullYear();
 
-  return `${day}/${month}/${year}`;
+  // return `${day}/${month}/${year}`;
+  // const options = {
+  //   hour: 'numeric',
+  //   minute: 'numeric',
+  //   day: 'numeric',
+  //   month: 'long',
+  //   year: 'numeric',
+  //   weekday: 'long'
+  // };
+  return new Intl.DateTimeFormat(locale).format(date);
 }
 
 /**
@@ -132,7 +142,7 @@ const displayMovements = function (acc, sort = false) {
 
   movs.forEach(function (mov, i) {
     const type = mov > 0 ? 'deposit' : 'withdrawal';
-    const displayDate = getDisplayDate(new Date(acc.movementsDates[i]));
+    const displayDate = getDisplayDate(new Date(acc.movementsDates[i]), acc.locale);
 
     const html = `
       <div class="movements__row" >
@@ -215,11 +225,6 @@ const updateUI = function (acc) {
 // Event Handlers
 let currentAccount;
 
-// Fake Always Logged In
-// currentAccount = account1;
-// updateUI(currentAccount);
-// containerApp.style.opacity = 100;
-
 btnLogin.addEventListener('click', function (e) {
   // Prevent form from submitting
   e.preventDefault();
@@ -227,13 +232,21 @@ btnLogin.addEventListener('click', function (e) {
   currentAccount = accounts.find(x => x.username === inputLoginUsername.value);
   console.log(currentAccount);
 
+  const options = {
+    hour: 'numeric',
+    minute: 'numeric',
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  };
+
   if (currentAccount?.pin === +inputLoginPin.value) {
     // Display UI and message
     labelWelcome.textContent = `Welcome back, ${currentAccount.owner.split(' ')[0]} `;
 
     // Show content
     containerApp.style.opacity = 100;
-    labelDate.textContent = getDisplayDate(new Date());
+    labelDate.textContent = labelDate.textContent = Intl.DateTimeFormat(currentAccount.locale, options).format(new Date());
 
     // Clear Input Fields
     inputLoginUsername.value = inputLoginPin.value = '';

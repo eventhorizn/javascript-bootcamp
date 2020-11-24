@@ -302,12 +302,16 @@ btnLoan.addEventListener('click', function (e) {
 
   if (amount > 0 &&
     currentAccount.movements.some(x => x >= amount / 10)) {
-    currentAccount.movements.push(amount);
 
-    // Add loan date
-    currentAccount.movementsDates.push(new Date().toISOString());
+    setTimeout(function () {
 
-    updateUI(currentAccount);
+      currentAccount.movements.push(amount);
+
+      // Add loan date
+      currentAccount.movementsDates.push(new Date().toISOString());
+
+      updateUI(currentAccount);
+    }, 2500);
   }
 
   inputLoanAmount.value = '';

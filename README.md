@@ -358,3 +358,22 @@ When to use each?
    - Returns a new array containing the array elements that passed a specified test condition
 1. Reduce
    - Boils (reduces) all array elements down to one single value (adding all elements together)
+
+# The DOM
+
+1. Allows us to make JS interact w/ the browser
+1. We can write JS to create, modify, and delete HTML elements
+   - Set styles, classes, and attributes
+   - Listen and respond to events
+1. DOM tree is generated from an HTML document, which we can then interact with
+1. DOM is a very complex API that contains a lot of methods and properties to interact w/ the DOM tree
+   - Different types of nodes
+   - Some are HTML elements, some are text
+
+## How the DOM is organized
+
+1. Every item is a node
+   - Represented by JS object
+   - Element, Text, Comment, Document types
+
+![](images/DOM.png)

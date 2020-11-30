@@ -377,3 +377,9 @@ When to use each?
    - Element, Text, Comment, Document types
 
 ![](images/DOM.png)
+
+## Effecient Script Loading
+
+Async and Defer only supported in modern browsers
+
+![](images/efficient-script.png)

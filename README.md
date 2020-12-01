@@ -383,3 +383,26 @@ When to use each?
 Async and Defer only supported in modern browsers
 
 ![](images/efficient-script.png)
+
+# OOP In JavaScript
+
+- Prototypes are the 'classes' in JS
+  - Contains methods
+  - Objects are linked to prototypes
+- Prototypal inheritance
+  - prototype contains methods that are accessible to all objects linked
+- Behavior is delegated to the linked prototype object
+
+![](images/oop-js.png)
+
+## How to Create Prototypes?
+
+1. Constructor Functions
+   - Create objects from a function
+   - How built-in objects like Arrays, Maps, or Sets are actually implemented
+1. ES6 Classes
+   - Modern alternative to constructor function syntax
+   - 'Syntatic sugar': behind the scenes, work exactly like constructor functions
+   - Do Not behave like classes in 'classical' OOP
+1. Object.create()
+   - Easiest and most straightforwared way of linking an object to a prototype object

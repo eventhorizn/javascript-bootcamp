@@ -406,3 +406,7 @@ Async and Defer only supported in modern browsers
    - Do Not behave like classes in 'classical' OOP
 1. Object.create()
    - Easiest and most straightforwared way of linking an object to a prototype object
+
+## ES6 Classes
+
+![](images/es6-class-summary.png)

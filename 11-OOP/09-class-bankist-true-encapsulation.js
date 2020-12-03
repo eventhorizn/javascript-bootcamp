@@ -34,18 +34,21 @@ class Account {
         return this.#movements;
     }
 
-    depoist(val) {
+    deposit(val) {
         this.#movements.push(val);
+        return this; // method chaining
     }
 
     withdrawal(val) {
-        this.depoist(-val);
+        this.deposit(-val);
+        return this; // method chaining
     }
 
     requestLoan(val) {
         if (this.#approveLoan(val)) {
-            this.depoist(val);
+            this.deposit(val);
             console.log('Loan approved');
+            return this; // method chaining
         }
     }
 
@@ -59,9 +62,13 @@ class Account {
 const acct1 = new Account('Jonas', 'EUR', 1111);
 console.log(acct1);
 
-acct1.depoist(250);
+acct1.deposit(250);
 acct1.withdrawal(140);
 acct1.requestLoan(1000);
 console.log(acct1);
 
 //console.log(acct1.#movements); // error
+
+// Method Chaining
+acct1.deposit(300).deposit(500).withdrawal(600).requestLoan(1000);
+console.log(acct1.getMovements());

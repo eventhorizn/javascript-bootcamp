@@ -410,3 +410,33 @@ Async and Defer only supported in modern browsers
 ## ES6 Classes
 
 ![](images/es6-class-summary.png)
+
+# Asyn Javascript: Promises, Async/Await, & AJAX
+
+## Async Code
+
+![](images/async-code.png)
+
+## AJAX
+
+1. Asynchronous JavaScript And XML
+   - Allows us to communicate w/ remote web servers in an async wah
+   - We can request data from web servers dynamically
+1. XML isn't used much anymore
+   - Naming convention is just stuck
+1. JSON is what's mainly used now
+
+![](images/ajax.png)
+
+## API
+
+1. Application Programming Interface
+   - Piece of softweare that can be used by another piece of software
+   - Allows apps to talk to each other
+1. Many types of APIs in web dev
+   - DOM API, Geolocation API, Own API, 'Online' API
+1. Online API: App running on a server, receives request for data
+   - Sends data back as response
+1. We can build our own web APIs
+   - Requires back end dev
+   - node.js

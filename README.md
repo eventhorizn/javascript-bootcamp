@@ -4,6 +4,8 @@
 1. ES6 on is modern JS
 1. ES6 was created in 2015
 
+- [Public API](https://github.com/public-apis/public-apis)
+
 ## What is JavaScript?
 
 It is a high-level, OO, multi-paradigm programming language

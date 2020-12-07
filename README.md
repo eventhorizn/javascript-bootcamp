@@ -442,3 +442,15 @@ Async and Defer only supported in modern browsers
 1. We can build our own web APIs
    - Requires back end dev
    - node.js
+
+## Promises
+
+- An object that is used as a placeholder for the future result of an asynchronous operation
+- A container for an asynchronously deliverd value
+- A container for a future value
+- We no longer need to rely on events and callback functions passed into async functions to handle async results
+- Instead of nesting callbacks, we can chain promises for a sequence of async operations
+
+  - Escape callback hell
+
+  ![](images/promise-lifecycle.png)

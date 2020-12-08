@@ -29,19 +29,67 @@ const renderError = function (msg) {
 
 // what is returned from a promise is the fulfilled value
 // Even if you don't specifically return
+// const getCountryData = function (country) {
+//     fetch(`https://restcountries.eu/rest/v2/name/${country}`)
+//         .then(response => {
+//             if (!response.ok) {
+//                 throw new Error(`Country not found (${response.status})`)
+//             }
+
+//             return response.json();
+//         })
+//         .then(data => {
+//             renderCountry(data[0]);
+//             const neighbour = data[0].borders[0];
+
+//             if (!neighbour) return;
+
+//             // return the promise and handle on the outside chain
+//             return fetch(`https://restcountries.eu/rest/v2/alpha/${neighbour}`);
+//         })
+//         .then(response => {
+//             if (!response.ok) {
+//                 throw new Error(`Country not found (${response.status})`)
+//             }
+
+//             return response.json()
+//         })
+//         .then(data => renderCountry(data, 'neighbour'))
+//         .catch(err => { // catches promise faliures anywhere
+//             console.error(err);
+//             renderError(`Something went wrong ${err.message}. Try again`);
+//         })
+//         .finally(() => {
+//             countriesContainer.style.opacity = 1;
+//         });
+// }
+
+// btn.addEventListener('click', function () {
+//     getCountryData('portugal');
+// });
+
+const getJSON = function (url, errorMsg = 'Something went wrong') {
+    return fetch(url).then(response => {
+        if (!response.ok) {
+            throw new Error(`${errorMsg} (${response.status})`)
+        }
+
+        return response.json();
+    });
+}
+
 const getCountryData = function (country) {
-    fetch(`https://restcountries.eu/rest/v2/name/${country}`)
-        .then(response => response.json())
+    // Country 1
+    getJSON(`https://restcountries.eu/rest/v2/name/${country}`, 'Country not found')
         .then(data => {
             renderCountry(data[0]);
             const neighbour = data[0].borders[0];
 
-            if (!neighbour) return;
+            if (!neighbour) throw new Error('No neighbor found!');
 
             // return the promise and handle on the outside chain
-            return fetch(`https://restcountries.eu/rest/v2/alpha/${neighbour}`);
+            return getJSON(`https://restcountries.eu/rest/v2/alpha/${neighbour}`, 'Country not found');
         })
-        .then(response => response.json())
         .then(data => renderCountry(data, 'neighbour'))
         .catch(err => { // catches promise faliures anywhere
             console.error(err);
@@ -56,4 +104,4 @@ btn.addEventListener('click', function () {
     getCountryData('portugal');
 });
 
-getCountryData('bbblah');
+getCountryData('australia');

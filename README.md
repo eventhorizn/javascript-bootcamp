@@ -454,3 +454,10 @@ Async and Defer only supported in modern browsers
   - Escape callback hell
 
   ![](images/promise-lifecycle.png)
+
+# Modern JavaScript Development
+
+1. NPM is the 'go-to' package manager for javascript packages
+   - Started w/ node, but has expanded
+
+![](images/modern-js-dev.png)

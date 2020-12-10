@@ -461,3 +461,31 @@ Async and Defer only supported in modern browsers
    - Started w/ node, but has expanded
 
 ![](images/modern-js-dev.png)
+
+## Parcel
+
+1. Needs npm (node package manager)
+
+Install
+
+```cmd
+npm i parcel --save-dev
+```
+
+Dev
+
+```cmd
+npx parcel index.html
+
+--Add a script to the package.json
+npm run start
+```
+
+Publish
+
+```cmd
+parcel build index.html
+
+--Add a script to the package.json
+npm run build
+```

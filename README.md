@@ -464,7 +464,17 @@ Async and Defer only supported in modern browsers
 
 ## Parcel
 
+[Parcel](https://parceljs.org/)
+
+- Packages modules
+
+[Babel](https://babeljs.io/)
+
+- Converts modern js to older versions
+
 1. Needs npm (node package manager)
+1. Parcel automatically uses **Babel**
+   - Converts modern JS to old JS
 
 Install
 

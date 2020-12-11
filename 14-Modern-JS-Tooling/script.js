@@ -29,3 +29,29 @@ console.log(cart);
 if (module.hot) {
     module.hot.accept();
 }
+
+// Configuring Bable and Polyfilling
+class Person {
+    #greeting = 'Hey';
+    constructor(name) {
+        this.name = name;
+        console.log(`${this.#greeting}, ${this.name}`);
+    }
+}
+const gary = new Person('Gary');
+
+console.log('Gary' ?? null);
+
+// This is es6 code and it's not converted by babel to es5 automatically
+console.log(cart.find(el => el.quantity >= 2));
+// Same w/ this
+// New additions can't be transpiled, only syntax
+// We can 'polyfill' them instead
+Promise.resolve('Test').then(x => console.log(x));
+
+// this is the package we use for polyfilling
+// polyfilling recreates the function in the deployed code
+import 'core-js/stable';
+
+// Poplifilling async functions
+import 'regenerator-runtime/runtime';

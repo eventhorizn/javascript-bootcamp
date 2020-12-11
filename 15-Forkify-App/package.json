@@ -10,7 +10,11 @@
 	"author": "Gary Hake",
 	"license": "ISC",
 	"devDependencies": {
+		"core-js": "^3.8.1",
 		"parcel": "^2.0.0-beta.1",
 		"sass": "^1.30.0"
+	},
+	"dependencies": {
+		"regenerator-runtime": "^0.13.7"
 	}
 }

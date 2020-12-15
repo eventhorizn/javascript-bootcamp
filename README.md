@@ -499,3 +499,19 @@ parcel build index.html
 --Add a script to the package.json
 npm run build
 ```
+
+# Netlify
+
+[Netlify](https://www.netlify.com/)
+
+- Static sites
+  - Only html, css, js
+  - No database
+
+```
+npm run build
+```
+
+1. Builds your dist folder
+1. Manually drop dist folder to netlify
+1. Better yet, hook up to git w/ built in tools
